@@ -10,10 +10,12 @@ namespace Agilis_for_Trello.WebAPI
     public class Startup
     {
         private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _environment;
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             _configuration = configuration;
+            _environment = environment;
         }
 
         /// <summary>
@@ -23,6 +25,7 @@ namespace Agilis_for_Trello.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerConfig(_environment);
             services.AddDependencyInjectionConfig(_configuration);
         }
 
@@ -43,6 +46,8 @@ namespace Agilis_for_Trello.WebAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwaggerConfig();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Agilis-for-Trello.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:Agilis_for_Trello.WebAPI.Configuration.DependencyInjectionConfig">
+            <summary>
+            Dependency injections configuration class
+            </summary>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Configuration.DependencyInjectionConfig.AddDependencyInjectionConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configure dependency injections
+            </summary>
+            <param name="services">Startup services collection</param>
+            <param name="configuration">Application configuration properties</param>
+            <returns>Updated services</returns>
+        </member>
+        <member name="T:Agilis_for_Trello.WebAPI.Configuration.SwaggerConfig">
+            <summary>
+            Extensions class for Swagger settings
+            </summary>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Configuration.SwaggerConfig.AddSwaggerConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configures the Open Api Info, XML version and path data
+            </summary>
+            <param name="services">Specifies the contract for a collection of service descriptors</param>
+            <returns>Updated services</returns>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Configuration.SwaggerConfig.UseSwaggerConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Enables the use of Swagger and defines its Endpoint
+            </summary>
+            <param name="app">Defines a class that provides the mechanisms to configure an application's request pipeline</param>
+            <returns>Updated app</returns>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
