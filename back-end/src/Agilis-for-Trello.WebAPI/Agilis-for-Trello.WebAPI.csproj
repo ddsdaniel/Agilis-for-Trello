@@ -12,12 +12,14 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.11.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\DDS.WebAPI\src\DDS.WebAPI\DDS.WebAPI.csproj" />
     <ProjectReference Include="..\Agilis-for-Trello.Domain\Agilis-for-Trello.Domain.csproj" />
+    <ProjectReference Include="..\Agilis-for-Trello.Infra.Data\Agilis-for-Trello.Infra.Data.csproj" />
   </ItemGroup>
 
 

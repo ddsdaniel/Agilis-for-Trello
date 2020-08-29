@@ -16,8 +16,4 @@
     <ProjectReference Include="..\Agilis-for-Trello.Domain\Agilis-for-Trello.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Reopositories\" />
-  </ItemGroup>
-
 </Project>

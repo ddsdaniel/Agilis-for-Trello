@@ -4,7 +4,7 @@ using Agilis_for_Trello.Domain.Models.Entities;
 
 namespace Agilis_for_Trello.Domain.Abstractions.Repositories
 {
-    public interface IUserRepository : IRepository<Usuario>
+    public interface IUsuarioRepository : IRepository<Usuario>
     {        
         public Usuario ConsultarPorEmail(Email email);
     }

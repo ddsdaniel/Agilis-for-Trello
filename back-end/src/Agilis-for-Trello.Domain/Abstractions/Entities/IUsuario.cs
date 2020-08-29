@@ -1,6 +1,6 @@
 ﻿using Agilis_for_Trello.Domain.Enums;
 using DDS.Domain.Core.Model.ValueObjects;
-using DDS.Domain.Core.Model.ValueObjects.Seguranca.Senhas;
+using DDS.Domain.Core.Model.ValueObjects.Senhas;
 using System;
 
 namespace Agilis_for_Trello.Domain.Abstractions.Entities

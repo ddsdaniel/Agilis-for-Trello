@@ -4,6 +4,11 @@
         <name>Agilis-for-Trello.WebAPI</name>
     </assembly>
     <members>
+        <member name="T:Agilis_for_Trello.WebAPI.Configuration.AutoMapper.AutoMapperConfig">
+            <summary>
+            Define o mapeamento entre as entidades e as view models, bem como alguns value objects específicos
+            </summary>
+        </member>
         <member name="T:Agilis_for_Trello.WebAPI.Configuration.DependencyInjectionConfig">
             <summary>
             Dependency injections configuration class

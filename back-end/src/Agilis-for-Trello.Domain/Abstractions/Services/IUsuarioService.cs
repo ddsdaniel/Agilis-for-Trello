@@ -1,6 +1,6 @@
 ﻿using DDS.Domain.Core.Abstractions.Services;
 using DDS.Domain.Core.Model.ValueObjects;
-using DDS.Domain.Core.Model.ValueObjects.Seguranca.Senhas;
+using DDS.Domain.Core.Model.ValueObjects.Senhas;
 using System;
 using System.Threading.Tasks;
 using Agilis_for_Trello.Domain.Models.Entities;

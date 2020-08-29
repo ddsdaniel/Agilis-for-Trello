@@ -1,4 +1,5 @@
 using Agilis_for_Trello.WebAPI.Configuration;
+using Agilis_for_Trello.WebAPI.Configuration.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +27,7 @@ namespace Agilis_for_Trello.WebAPI
         {
             services.AddControllers();
             services.AddSwaggerConfig(_environment);
+            services.AddAutoMapperConfig();
             services.AddDependencyInjectionConfig(_configuration);
         }
 
