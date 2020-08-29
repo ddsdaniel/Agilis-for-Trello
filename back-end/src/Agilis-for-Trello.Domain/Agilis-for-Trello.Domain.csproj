@@ -5,4 +5,8 @@
     <RootNamespace>Agilis_for_Trello.Domain</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DDS.Domain.Core\src\DDS.Domain.Core\DDS.Domain.Core.csproj" />
+  </ItemGroup>
+
 </Project>

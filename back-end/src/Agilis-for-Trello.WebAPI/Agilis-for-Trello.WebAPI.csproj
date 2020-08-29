@@ -10,15 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DDS.WebAPI\src\DDS.WebAPI\DDS.WebAPI.csproj" />
     <ProjectReference Include="..\Agilis-for-Trello.Domain\Agilis-for-Trello.Domain.csproj" />
   </ItemGroup>
 
