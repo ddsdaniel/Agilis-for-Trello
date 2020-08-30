@@ -2,6 +2,7 @@
 using DDS.Domain.Core.Model.ValueObjects;
 using DDS.Domain.Core.Model.ValueObjects.Seguranca.Senhas;
 using Flunt.Validations;
+using DDS.Domain.Core.Extensions;
 
 namespace Agilis_for_Trello.Domain.Models.ValueObjects
 {
@@ -22,7 +23,7 @@ namespace Agilis_for_Trello.Domain.Models.ValueObjects
                 .IsNotNull(senha, nameof(Senha), "Senha não deve ser nula")
                 );
 
-            AddNotifications(email, senha);
+            this.AddNotificationsIfNotNull(email, senha);
 
             Email = email;
             Senha = senha;
