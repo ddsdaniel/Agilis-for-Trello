@@ -26,7 +26,6 @@ namespace Agilis_for_Trello.WebAPI.Controllers
     {
         private readonly IUsuarioService _usuarioService;
         private readonly IMapper _mapper;
-        private readonly ITokenService _tokenService;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
@@ -34,17 +33,14 @@ namespace Agilis_for_Trello.WebAPI.Controllers
         /// </summary>
         /// <param name="usuarioService">Serviço para validação e manipulação da entidade</param>       
         /// <param name="mapper">Automapper</param>
-        /// <param name="tokenService">Serviço que gera o token da autenticação do usuário</param>
         /// <param name="httpContextAccessor">Usada para obter o usuário logado</param>        
         public UsuariosController(IUsuarioService usuarioService,
                                   IMapper mapper,
-                                  ITokenService tokenService,
                                   IHttpContextAccessor httpContextAccessor)
             : base(usuarioService, mapper)
         {
             _usuarioService = usuarioService;
             _mapper = mapper;
-            _tokenService = tokenService;
             _httpContextAccessor = httpContextAccessor;
         }
 
@@ -65,35 +61,7 @@ namespace Agilis_for_Trello.WebAPI.Controllers
             return await base.Post(novoUsuarioViewModel);
         }
 
-        /// <summary>
-        /// Realiza a autenticação do usuário
-        /// </summary>
-        /// <param name="loginViewModel"></param>
-        /// <returns>Dados do usuário + token da autenticação</returns>
-        [HttpPost("login")]
-        [AllowAnonymous]
-        [ProducesResponseType(typeof(UsuarioLogadoViewModel), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(List<Notification>), StatusCodes.Status400BadRequest)]
-        public IActionResult Login([FromBody] LoginViewModel loginViewModel)
-        {
-            var login = _mapper.Map<Login>(loginViewModel);
-
-            var usuario = _usuarioService.Autenticar(login);
-
-            if (_usuarioService.Invalid)
-                return BadRequest(_usuarioService.Notifications);
-
-            var token = _tokenService.Gerar(usuario);
-
-            var usuarioLogado = _mapper.Map<UsuarioConsultaViewModel>(usuario);
-
-            return Ok(new UsuarioLogadoViewModel
-            {
-                Usuario = usuarioLogado,
-                Token = token,
-                TipoToken = "Bearer"
-            });
-        }
+     
 
         /// <summary>
         /// Altera a senha do usuário do repositório

@@ -26,6 +26,8 @@ namespace Agilis_for_Trello.WebAPI
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             services.AddControllers()
                 .AddNewtonsoftJson()
                 .AddNewtonsoftConfig();
@@ -33,6 +35,7 @@ namespace Agilis_for_Trello.WebAPI
             services.AddSwaggerConfig(_environment);
             services.AddAutoMapperConfig();
             services.AddDependencyInjectionConfig(_configuration);
+            services.AddJwtConfig();
         }
 
         /// <summary>
@@ -53,6 +56,9 @@ namespace Agilis_for_Trello.WebAPI
 
             app.UseRouting();
 
+            app.UseCorsConfig();
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseSwaggerConfig();

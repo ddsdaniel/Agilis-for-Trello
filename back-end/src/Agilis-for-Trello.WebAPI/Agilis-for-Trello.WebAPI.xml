@@ -9,6 +9,18 @@
             Define o mapeamento entre as entidades e as view models, bem como alguns value objects específicos
             </summary>
         </member>
+        <member name="T:Agilis_for_Trello.WebAPI.Configuration.CorsConfig">
+            <summary>
+            Classe de extensão para separar as configurações de Cors
+            </summary>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Configuration.CorsConfig.UseCorsConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configura o Cors
+            </summary>
+            <param name="app">Defines a class that provides the mechanisms to configure an application's request pipeline</param>
+            <returns>app atualizado</returns>
+        </member>
         <member name="T:Agilis_for_Trello.WebAPI.Configuration.DependencyInjectionConfig">
             <summary>
             Dependency injections configuration class
@@ -21,6 +33,18 @@
             <param name="services">Startup services collection</param>
             <param name="configuration">Application configuration properties</param>
             <returns>Updated services</returns>
+        </member>
+        <member name="T:Agilis_for_Trello.WebAPI.Configuration.JwtConfig">
+            <summary>
+            Define configurações para do token de autenticação
+            </summary>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Configuration.JwtConfig.AddJwtConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adiciona configurações do token
+            </summary>
+            <param name="services">Coleção de serviços da startup</param>
+            <returns>Services configurado para atuar com token jwt</returns>
         </member>
         <member name="T:Agilis_for_Trello.WebAPI.Configuration.MongoConfig">
             <summary>
@@ -66,18 +90,32 @@
             <param name="app">Defines a class that provides the mechanisms to configure an application's request pipeline</param>
             <returns>Updated app</returns>
         </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Controllers.AutenticacaoController.#ctor(AutoMapper.IMapper,Agilis_for_Trello.Domain.Abstractions.Services.IUsuarioService,Agilis_for_Trello.Domain.Abstractions.Services.ITokenService)">
+            <summary>
+            Construtor completo da Controller
+            </summary>
+            <param name="mapper">Automapper</param>
+            <param name="usuarioService">Serviço para validação e manipulação da entidade</param>
+            <param name="tokenService">Serviço que gera o token da autenticação do usuário</param>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Controllers.AutenticacaoController.Post(Agilis_for_Trello.WebAPI.ViewModels.LoginViewModel)">
+            <summary>
+            Realiza a autenticação do usuário
+            </summary>
+            <param name="loginViewModel"></param>
+            <returns>Dados do usuário + token da autenticação</returns>
+        </member>
         <member name="T:Agilis_for_Trello.WebAPI.Controllers.UsuariosController">
             <summary>
             Manutenção do repositório e serviços da conta, como autenticação, registro, troca de senha, etc.
             </summary>    
         </member>
-        <member name="M:Agilis_for_Trello.WebAPI.Controllers.UsuariosController.#ctor(Agilis_for_Trello.Domain.Abstractions.Services.IUsuarioService,AutoMapper.IMapper,Agilis_for_Trello.Domain.Abstractions.Services.ITokenService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+        <member name="M:Agilis_for_Trello.WebAPI.Controllers.UsuariosController.#ctor(Agilis_for_Trello.Domain.Abstractions.Services.IUsuarioService,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
             <summary>
             Construtor com parâmetros injetados
             </summary>
             <param name="usuarioService">Serviço para validação e manipulação da entidade</param>       
             <param name="mapper">Automapper</param>
-            <param name="tokenService">Serviço que gera o token da autenticação do usuário</param>
             <param name="httpContextAccessor">Usada para obter o usuário logado</param>        
         </member>
         <member name="M:Agilis_for_Trello.WebAPI.Controllers.UsuariosController.Post(Agilis_for_Trello.WebAPI.ViewModels.UsuarioCadastroViewModel)">
@@ -86,13 +124,6 @@
             </summary>
             <param name="novoUsuarioViewModel">Dados do novo usuário</param>
             <returns>Id do usuário recém cadastrado</returns>
-        </member>
-        <member name="M:Agilis_for_Trello.WebAPI.Controllers.UsuariosController.Login(Agilis_for_Trello.WebAPI.ViewModels.LoginViewModel)">
-            <summary>
-            Realiza a autenticação do usuário
-            </summary>
-            <param name="loginViewModel"></param>
-            <returns>Dados do usuário + token da autenticação</returns>
         </member>
         <member name="M:Agilis_for_Trello.WebAPI.Controllers.UsuariosController.AlterarSenha(System.Guid,Agilis_for_Trello.WebAPI.ViewModels.AlteraSenhaViewModel)">
             <summary>
