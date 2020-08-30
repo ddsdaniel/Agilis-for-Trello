@@ -4,6 +4,9 @@ using Agilis_for_Trello.Domain.Abstractions.ValueObjects;
 using Agilis_for_Trello.Domain.Models.ValueObjects;
 using Agilis_for_Trello.Domain.Services;
 using Agilis_for_Trello.Infra.Data.Repositories;
+using DDS.Domain.Core.Abstractions.Services.Criptografia;
+using DDS.Domain.Core.Services.Criptografia;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -37,6 +40,8 @@ namespace Agilis_for_Trello.WebAPI.Configuration
 
             //Seguranca
             services.AddScoped<ITokenService, TokenService>();
+            services.AddTransient<ICriptografiaSimetrica, AdvancedEncryptionStandard>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             //AppSettings
             services.Configure<AppSettings>(configuration.GetSection(nameof(AppSettings)));

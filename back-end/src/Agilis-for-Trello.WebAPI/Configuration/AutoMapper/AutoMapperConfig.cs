@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using Agilis_for_Trello.WebAPI.Configuration.AutoMapper.Profiles;
+using DDS.WebAPI.Configuration.AutoMapper.Profiles;
 
 namespace Agilis_for_Trello.WebAPI.Configuration.AutoMapper
 {
@@ -13,6 +14,8 @@ namespace Agilis_for_Trello.WebAPI.Configuration.AutoMapper
         {
             services.AddSingleton((provider) => new MapperConfiguration(cfg =>
             {
+                cfg.AddProfile<EmailProfile>();
+                cfg.AddProfile<SenhasProfile>();
                 cfg.AddProfile<UsuariosProfile>();
             }).CreateMapper());
 

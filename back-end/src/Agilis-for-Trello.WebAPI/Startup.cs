@@ -25,7 +25,10 @@ namespace Agilis_for_Trello.WebAPI
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson()
+                .AddNewtonsoftConfig();
+
             services.AddSwaggerConfig(_environment);
             services.AddAutoMapperConfig();
             services.AddDependencyInjectionConfig(_configuration);
