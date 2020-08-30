@@ -10,16 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0-preview.8.20407.11" />
     <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DDS.WebAPI\src\DDS.WebAPI\DDS.WebAPI.csproj" />
     <ProjectReference Include="..\Agilis-for-Trello.Domain\Agilis-for-Trello.Domain.csproj" />
+    <ProjectReference Include="..\Agilis-for-Trello.Infra.Data\Agilis-for-Trello.Infra.Data.csproj" />
   </ItemGroup>
 
 

@@ -1,9 +1,11 @@
 using Agilis_for_Trello.WebAPI.Configuration;
+using Agilis_for_Trello.WebAPI.Configuration.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Agilis_for_Trello.WebAPI
 {
@@ -24,8 +26,12 @@ namespace Agilis_for_Trello.WebAPI
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson()
+                .AddNewtonsoftConfig();
+
             services.AddSwaggerConfig(_environment);
+            services.AddAutoMapperConfig();
             services.AddDependencyInjectionConfig(_configuration);
         }
 
@@ -34,8 +40,10 @@ namespace Agilis_for_Trello.WebAPI
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
+            app.UseMongoConfig(serviceProvider);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -4,6 +4,11 @@
         <name>Agilis-for-Trello.WebAPI</name>
     </assembly>
     <members>
+        <member name="T:Agilis_for_Trello.WebAPI.Configuration.AutoMapper.AutoMapperConfig">
+            <summary>
+            Define o mapeamento entre as entidades e as view models, bem como alguns value objects específicos
+            </summary>
+        </member>
         <member name="T:Agilis_for_Trello.WebAPI.Configuration.DependencyInjectionConfig">
             <summary>
             Dependency injections configuration class
@@ -16,6 +21,31 @@
             <param name="services">Startup services collection</param>
             <param name="configuration">Application configuration properties</param>
             <returns>Updated services</returns>
+        </member>
+        <member name="T:Agilis_for_Trello.WebAPI.Configuration.MongoConfig">
+            <summary>
+            Define as configurações globais para o mongo
+            </summary>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Configuration.MongoConfig.UseMongoConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.IServiceProvider)">
+            <summary>
+            Configura os parâmetros globais para o mongo, como por exemplo: serialização especial para determinados tipos de dados
+            </summary>
+            <param name="app">Classe que provê os mecanismos para configurar os serviços</param>
+            <param name="serviceProvider">Usado para obter os serviços necessários</param>
+            <returns>App pós configuração</returns>
+        </member>
+        <member name="T:Agilis_for_Trello.WebAPI.Configuration.NewtonsoftConfig">
+            <summary>
+            Configurações para o Newtonsoft
+            </summary>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Configuration.NewtonsoftConfig.AddNewtonsoftConfig(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            Configura data, enum e camelcase
+            </summary>
+            <param name="builder">An interface for configuring MVC services.</param>
+            <returns>builder atualizado</returns>
         </member>
         <member name="T:Agilis_for_Trello.WebAPI.Configuration.SwaggerConfig">
             <summary>
@@ -36,18 +66,198 @@
             <param name="app">Defines a class that provides the mechanisms to configure an application's request pipeline</param>
             <returns>Updated app</returns>
         </member>
+        <member name="T:Agilis_for_Trello.WebAPI.Controllers.UsuariosController">
+            <summary>
+            Manutenção do repositório e serviços da conta, como autenticação, registro, troca de senha, etc.
+            </summary>    
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Controllers.UsuariosController.#ctor(Agilis_for_Trello.Domain.Abstractions.Services.IUsuarioService,AutoMapper.IMapper,Agilis_for_Trello.Domain.Abstractions.Services.ITokenService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Construtor com parâmetros injetados
+            </summary>
+            <param name="usuarioService">Serviço para validação e manipulação da entidade</param>       
+            <param name="mapper">Automapper</param>
+            <param name="tokenService">Serviço que gera o token da autenticação do usuário</param>
+            <param name="httpContextAccessor">Usada para obter o usuário logado</param>        
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Controllers.UsuariosController.Post(Agilis_for_Trello.WebAPI.ViewModels.UsuarioCadastroViewModel)">
+            <summary>
+            Realiza alguns procedimentos e validações com a senha antes de chamar o Post da classe base
+            </summary>
+            <param name="novoUsuarioViewModel">Dados do novo usuário</param>
+            <returns>Id do usuário recém cadastrado</returns>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Controllers.UsuariosController.Login(Agilis_for_Trello.WebAPI.ViewModels.LoginViewModel)">
+            <summary>
+            Realiza a autenticação do usuário
+            </summary>
+            <param name="loginViewModel"></param>
+            <returns>Dados do usuário + token da autenticação</returns>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Controllers.UsuariosController.AlterarSenha(System.Guid,Agilis_for_Trello.WebAPI.ViewModels.AlteraSenhaViewModel)">
+            <summary>
+            Altera a senha do usuário do repositório
+            </summary>
+            <param name="id">Id da entidade que será alterada</param>
+            <param name="alteraSenhaViewModel">Dados para a alteração da senha</param>
+            <returns>OK (201)</returns>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Controllers.UsuariosController.Ordenar(System.Collections.Generic.ICollection{Agilis_for_Trello.WebAPI.ViewModels.UsuarioConsultaViewModel})">
+            <summary>
+            Método abstrato, no qual cada controller implementa a ordenação de forma customizada
+            </summary>
+            <param name="lista">Lista a ser ordenada</param>
+            <returns>Lista já ordenada</returns>
+        </member>
+        <member name="T:Agilis_for_Trello.WebAPI.Extensions.HttpContextAccessorExtensions">
+            <summary>
+            Classe que provê métodos de extensão para IHttpContextAccessor
+            </summary>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Extensions.HttpContextAccessorExtensions.ObterEmail(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Obtém o e-mail do usuário logado
+            </summary>
+            <param name="httpContextAccessor">Variável injetada que contém os dados do usuário logado</param>
+            <returns></returns>
+        </member>
         <member name="M:Agilis_for_Trello.WebAPI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             This method gets called by the runtime. Use this method to add services to the container.
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Agilis_for_Trello.WebAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+        <member name="M:Agilis_for_Trello.WebAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,System.IServiceProvider)">
             <summary>
             This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
             </summary>
             <param name="app"></param>
             <param name="env"></param>
+        </member>
+        <member name="T:Agilis_for_Trello.WebAPI.ViewModels.AlteraSenhaViewModel">
+            <summary>
+            Classe que repsenta a requisição de troca de senha do usuário
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.AlteraSenhaViewModel.SenhaAtual">
+            <summary>
+            Senha atual do usuário
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.AlteraSenhaViewModel.NovaSenha">
+            <summary>
+            Nova senha desejada
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.AlteraSenhaViewModel.ConfirmaSenha">
+            <summary>
+            Confirmação da senha para evitar erros de digitação
+            </summary>
+        </member>
+        <member name="T:Agilis_for_Trello.WebAPI.ViewModels.LoginViewModel">
+            <summary>
+            Dados necessário para realizar o login
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.LoginViewModel.Email">
+            <summary>
+            Endereço de e-mail para login
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.LoginViewModel.Senha">
+            <summary>
+            Senha para realizar o login
+            </summary>
+        </member>
+        <member name="T:Agilis_for_Trello.WebAPI.ViewModels.UsuarioCadastroViewModel">
+            <summary>
+            View model usada para cadastrar novos usuários ou para alterar os dados do mesmo
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioCadastroViewModel.Id">
+            <summary>
+            Identificador único do usuário
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioCadastroViewModel.Email">
+            <summary>
+            E-mail do usuário, usado para login e recuperação de senha
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioCadastroViewModel.Nome">
+            <summary>
+            Nome do usuário, será concatenado com o sobrenome quando necessário
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioCadastroViewModel.Sobrenome">
+            <summary>
+            Sobrenome, será concatenado com o nome quando necessário
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioCadastroViewModel.Regra">
+            <summary>
+            Perfil do usuário, consultar valores possíveis
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioCadastroViewModel.Senha">
+            <summary>
+            Senha de acesso, não cifrada
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioCadastroViewModel.ConfirmaSenha">
+            <summary>
+            Validação para conferir se o usuário não errou na digitação da senha
+            </summary>
+        </member>
+        <member name="T:Agilis_for_Trello.WebAPI.ViewModels.UsuarioConsultaViewModel">
+            <summary>
+            Classe usada nos métodos que retornam dados ao front
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioConsultaViewModel.Id">
+            <summary>
+            Id do usuário
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioConsultaViewModel.Email">
+            <summary>
+            E-mail do usuário
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioConsultaViewModel.Nome">
+            <summary>
+            Nome do usuário
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioConsultaViewModel.Sobrenome">
+            <summary>
+            Sobrenome do usuário
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioConsultaViewModel.Regra">
+            <summary>
+            Indica o perfil do usuário
+            </summary>
+        </member>
+        <member name="T:Agilis_for_Trello.WebAPI.ViewModels.UsuarioLogadoViewModel">
+            <summary>
+            Dados do usuário logado e token, retornado apenas em caso de sucesso
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioLogadoViewModel.Usuario">
+            <summary>
+            Usuário logado
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioLogadoViewModel.Token">
+            <summary>
+            Token correspondente ao login
+            </summary>
+        </member>
+        <member name="P:Agilis_for_Trello.WebAPI.ViewModels.UsuarioLogadoViewModel.TipoToken">
+            <summary>
+            Tipo do token
+            </summary>
         </member>
     </members>
 </doc>
