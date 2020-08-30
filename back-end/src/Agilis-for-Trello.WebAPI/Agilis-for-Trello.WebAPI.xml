@@ -22,6 +22,19 @@
             <param name="configuration">Application configuration properties</param>
             <returns>Updated services</returns>
         </member>
+        <member name="T:Agilis_for_Trello.WebAPI.Configuration.MongoConfig">
+            <summary>
+            Define as configurações globais para o mongo
+            </summary>
+        </member>
+        <member name="M:Agilis_for_Trello.WebAPI.Configuration.MongoConfig.UseMongoConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.IServiceProvider)">
+            <summary>
+            Configura os parâmetros globais para o mongo, como por exemplo: serialização especial para determinados tipos de dados
+            </summary>
+            <param name="app">Classe que provê os mecanismos para configurar os serviços</param>
+            <param name="serviceProvider">Usado para obter os serviços necessários</param>
+            <returns>App pós configuração</returns>
+        </member>
         <member name="T:Agilis_for_Trello.WebAPI.Configuration.NewtonsoftConfig">
             <summary>
             Configurações para o Newtonsoft
@@ -114,7 +127,7 @@
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Agilis_for_Trello.WebAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+        <member name="M:Agilis_for_Trello.WebAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,System.IServiceProvider)">
             <summary>
             This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
             </summary>
