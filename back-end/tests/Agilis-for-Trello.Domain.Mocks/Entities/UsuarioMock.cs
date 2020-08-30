@@ -3,6 +3,7 @@ using Agilis_for_Trello.Domain.Models.Entities;
 using Agilis_for_Trello.Domain.Mocks.ValueObjects;
 using Agilis_for_Trello.Domain.Enums;
 using DDS.Domain.Core.Model.ValueObjects.Seguranca.Senhas;
+using DDS.Domain.Core.Model.ValueObjects;
 
 namespace Agilis_for_Trello.Domain.Mocks.Entities
 {
@@ -37,6 +38,18 @@ namespace Agilis_for_Trello.Domain.Mocks.Entities
                                                   p.Person.FirstName,
                                                   p.Person.LastName,
                                                   SenhaMock.ObterValida(),
+                                                  RegraUsuario.Admin
+                                                  ))
+             .Generate();
+        }
+
+        public static Usuario ObterComEmail(Email email, SenhaMedia senha)
+        {
+            return new Faker<Usuario>()
+             .CustomInstantiator(p => new Usuario(email,
+                                                  p.Person.FirstName,
+                                                  p.Person.LastName,
+                                                  senha,
                                                   RegraUsuario.Admin
                                                   ))
              .Generate();

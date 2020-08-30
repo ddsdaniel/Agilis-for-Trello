@@ -31,9 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDS.Infra.Data.Mongo", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDS.WebAPI", "..\..\DDS.WebAPI\src\DDS.WebAPI\DDS.WebAPI.csproj", "{CF9903CB-7517-4FA9-A034-4D231838DBA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agilis-for-Trello.Domain.Mocks", "tests\Agilis-for-Trello.Domain.Mocks\Agilis-for-Trello.Domain.Mocks.csproj", "{173CD564-8340-43C1-9BC5-73F56C0321F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agilis-for-Trello.Domain.Mocks", "tests\Agilis-for-Trello.Domain.Mocks\Agilis-for-Trello.Domain.Mocks.csproj", "{173CD564-8340-43C1-9BC5-73F56C0321F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agilis-for-Trello.Domain.Tests.Unidade", "tests\Agilis-for-Trello.Domain.Tests.Unidade\Agilis-for-Trello.Domain.Tests.Unidade.csproj", "{7657F973-CA83-4264-8B69-5C3BE14DE5C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agilis-for-Trello.Domain.Tests.Unidade", "tests\Agilis-for-Trello.Domain.Tests.Unidade\Agilis-for-Trello.Domain.Tests.Unidade.csproj", "{7657F973-CA83-4264-8B69-5C3BE14DE5C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agilis-for-Trello.Domain.Tests.Integracao", "tests\Agilis-for-Trello.Domain.Tests.Integracao\Agilis-for-Trello.Domain.Tests.Integracao.csproj", "{3BEDB100-1FE0-4FEF-B104-CDA40C317681}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,18 @@ Global
 		{7657F973-CA83-4264-8B69-5C3BE14DE5C4}.Release|x64.Build.0 = Release|Any CPU
 		{7657F973-CA83-4264-8B69-5C3BE14DE5C4}.Release|x86.ActiveCfg = Release|Any CPU
 		{7657F973-CA83-4264-8B69-5C3BE14DE5C4}.Release|x86.Build.0 = Release|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Debug|x64.Build.0 = Debug|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Debug|x86.Build.0 = Debug|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Release|x64.ActiveCfg = Release|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Release|x64.Build.0 = Release|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Release|x86.ActiveCfg = Release|Any CPU
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,6 +185,7 @@ Global
 		{CF9903CB-7517-4FA9-A034-4D231838DBA9} = {59DEBE57-EBC5-4DDD-80F0-66795B0FA90F}
 		{173CD564-8340-43C1-9BC5-73F56C0321F2} = {206B4822-A85B-43D4-BC54-A313E7470AF2}
 		{7657F973-CA83-4264-8B69-5C3BE14DE5C4} = {206B4822-A85B-43D4-BC54-A313E7470AF2}
+		{3BEDB100-1FE0-4FEF-B104-CDA40C317681} = {206B4822-A85B-43D4-BC54-A313E7470AF2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2EA0540D-CEB0-4C78-A0E9-0C4EDF1A367A}
