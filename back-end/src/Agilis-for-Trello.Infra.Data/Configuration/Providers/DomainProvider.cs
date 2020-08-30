@@ -1,7 +1,7 @@
-﻿using DDS.Domain.Core.Model.ValueObjects.Senhas;
+﻿using DDS.Domain.Core.Model.ValueObjects.Seguranca.Senhas;
 using MongoDB.Bson.Serialization;
 using System;
-using DDS.Domain.Core.Abstractions.Services.Criptografia;
+using DDS.Domain.Core.Abstractions.Services.Seguranca.Criptografia;
 using Agilis_for_Trello.Domain.Abstractions.ValueObjects;
 using Agilis_for_Trello.Infra.Data.Configuration.Serializers;
 

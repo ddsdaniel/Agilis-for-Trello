@@ -3,7 +3,7 @@ using Agilis_for_Trello.Domain.Models.ValueObjects;
 using Agilis_for_Trello.WebAPI.ViewModels;
 using AutoMapper;
 using DDS.Domain.Core.Model.ValueObjects;
-using DDS.Domain.Core.Model.ValueObjects.Senhas;
+using DDS.Domain.Core.Model.ValueObjects.Seguranca.Senhas;
 
 namespace Agilis_for_Trello.WebAPI.Configuration.AutoMapper.Profiles
 {

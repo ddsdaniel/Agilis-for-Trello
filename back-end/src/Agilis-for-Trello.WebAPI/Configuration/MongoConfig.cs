@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization;
 using Agilis_for_Trello.Infra.Data.Configuration.Providers;
 using System;
 using Agilis_for_Trello.Domain.Abstractions.ValueObjects;
-using DDS.Domain.Core.Abstractions.Services.Criptografia;
+using DDS.Domain.Core.Abstractions.Services.Seguranca.Criptografia;
 
 namespace Agilis_for_Trello.WebAPI.Configuration
 {
