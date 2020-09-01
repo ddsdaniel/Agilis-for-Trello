@@ -16,6 +16,13 @@ namespace Agilis_for_Trello.Domain.Mocks.ValueObjects
                .Generate();
         }
 
+        public static Login ObterInvalido()
+        {
+            return new Login(EmailMock.ObterInvalido(),
+                             SenhaMock.ObterInvalida()
+                            );
+        }
+
         public static Login ObterComSenha(SenhaMedia senha)
         {
             return new Faker<Login>()

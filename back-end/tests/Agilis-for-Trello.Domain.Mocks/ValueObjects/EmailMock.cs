@@ -9,5 +9,8 @@ namespace Agilis_for_Trello.Domain.Mocks.ValueObjects
             => new Faker<Email>()
                .CustomInstantiator(e => new Email(e.Internet.Email()))
                .Generate();
+
+        public static Email ObterInvalido()
+            => new Email("invalido");
     }
 }
