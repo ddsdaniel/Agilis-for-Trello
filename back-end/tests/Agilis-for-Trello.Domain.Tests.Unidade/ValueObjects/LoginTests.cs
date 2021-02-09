@@ -1,7 +1,7 @@
 ﻿using Agilis_for_Trello.Domain.Mocks.ValueObjects;
 using Agilis_for_Trello.Domain.Models.Entities;
-using DDS.Domain.Core.Model.ValueObjects;
-using DDS.Domain.Core.Model.ValueObjects.Seguranca.Senhas;
+using DDS.Domain.Core.Models.ValueObjects;
+using DDS.Domain.Core.Models.ValueObjects.Seguranca.Senhas;
 using System;
 using System.Collections.Generic;
 using System.Text;

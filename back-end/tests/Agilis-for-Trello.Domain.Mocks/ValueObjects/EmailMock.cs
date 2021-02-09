@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using DDS.Domain.Core.Model.ValueObjects;
+using DDS.Domain.Core.Models.ValueObjects;
 
 namespace Agilis_for_Trello.Domain.Mocks.ValueObjects
 {

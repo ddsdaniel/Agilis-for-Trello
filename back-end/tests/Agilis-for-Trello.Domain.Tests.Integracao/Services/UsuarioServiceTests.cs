@@ -4,7 +4,8 @@ using Agilis_for_Trello.Domain.Mocks.ValueObjects;
 using Agilis_for_Trello.Domain.Models.Entities;
 using Agilis_for_Trello.Domain.Services;
 using AutoMoqCore;
-using DDS.Domain.Core.Model.ValueObjects.Seguranca.Senhas;
+using DDS.Domain.Core.Models.ValueObjects.Seguranca.Senhas;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Agilis_for_Trello.Domain.Tests.Integracao.Services
@@ -24,7 +25,7 @@ namespace Agilis_for_Trello.Domain.Tests.Integracao.Services
                   .Returns(usuarioMock);
 
             var unitOfWork = mocker.GetMock<IUnitOfWork>().Object;
-            
+
             var usuarioService = new UsuarioService(unitOfWork);
 
             //Act
@@ -88,5 +89,30 @@ namespace Agilis_for_Trello.Domain.Tests.Integracao.Services
             Assert.True(login.Valid);
             Assert.True(usuarioService.Invalid);
         }
+
+        [Fact]
+        public async void AlterarSenha_DadosCorretos_Valid()
+        {
+            //Arrange
+            var mocker = new AutoMoqer();
+            var novaSenha = SenhaMock.ObterValida();
+            var confirmaSenha = novaSenha;
+            var usuarioMock = UsuarioMock.ObterComEmail(EmailMock.ObterValido(), SenhaMock.ObterValida());
+
+            mocker.GetMock<IUnitOfWork>()
+                  .Setup(uow => uow.UsuarioRepository.ConsultarPorId(usuarioMock.Id))
+                  .Returns(new Task<Usuario>(() => usuarioMock));
+
+            var unitOfWork = mocker.GetMock<IUnitOfWork>().Object;
+
+            var usuarioService = new UsuarioService(unitOfWork);
+
+            //Act
+            await usuarioService.AlterarSenha(usuarioMock.Id, usuarioMock.Email, usuarioMock.Senha, novaSenha, confirmaSenha);
+
+            //Assert
+            Assert.True(usuarioService.Valid);
+        }
+
     }
 }

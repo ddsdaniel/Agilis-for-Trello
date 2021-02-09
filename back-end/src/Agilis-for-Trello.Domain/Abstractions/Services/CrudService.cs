@@ -1,4 +1,4 @@
-﻿using DDS.Domain.Core.Abstractions.Model.Entities;
+﻿using DDS.Domain.Core.Abstractions.Models.Entities;
 using DDS.Domain.Core.Abstractions.Repositories;
 using DDS.Domain.Core.Abstractions.Services;
 using Agilis_for_Trello.Domain.Abstractions.Repositories;

@@ -2,8 +2,8 @@
 using Agilis_for_Trello.Domain.Models.Entities;
 using Agilis_for_Trello.Domain.Mocks.ValueObjects;
 using Agilis_for_Trello.Domain.Enums;
-using DDS.Domain.Core.Model.ValueObjects.Seguranca.Senhas;
-using DDS.Domain.Core.Model.ValueObjects;
+using DDS.Domain.Core.Models.ValueObjects.Seguranca.Senhas;
+using DDS.Domain.Core.Models.ValueObjects;
 
 namespace Agilis_for_Trello.Domain.Mocks.Entities
 {

@@ -1,4 +1,4 @@
-﻿using DDS.Domain.Core.Model.ValueObjects.Seguranca.Senhas;
+﻿using DDS.Domain.Core.Models.ValueObjects.Seguranca.Senhas;
 using Xunit;
 using Agilis_for_Trello.Domain.Mocks.Entities;
 using Agilis_for_Trello.Domain.Models.Entities;
